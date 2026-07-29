@@ -1,66 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+
 import Sidebar from "@/components/Sidebar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-
-  title:
-    "Dineshkumar Loganathan | Ph.D. Researcher | NCKU",
-
+  title: "Dr. Dineshkumar Loganathan",
   description:
-    "Official academic profile of Dineshkumar Loganathan, Ph.D. Researcher at National Cheng Kung University (NCKU), Taiwan. Research areas include intelligent microfluidics, magnetic microrobotics, biomedical systems, CFD and AI-driven flow manipulation.",
-
-
+    "Academic website of Dr. Dineshkumar Loganathan | Mechanical Engineering | Microfluidics | Magnetic Microrobotics | Biomedical Engineering",
   keywords: [
     "Dineshkumar Loganathan",
-    "PhD Researcher",
-    "National Cheng Kung University",
-    "NCKU",
+    "Mechanical Engineering",
     "Microfluidics",
     "Magnetic Microrobotics",
     "Biomedical Engineering",
-    "Computational Fluid Dynamics",
     "Artificial Intelligence",
-    "Deep Learning",
+    "National Cheng Kung University",
   ],
-
-
-  authors: [
-    {
-      name: "Dineshkumar Loganathan",
-    },
-  ],
-
-
-  creator:
-    "Dineshkumar Loganathan",
-
-
-  openGraph: {
-
-    title:
-      "Dineshkumar Loganathan | Ph.D. Researcher",
-
-    description:
-      "Academic profile showcasing research publications, projects, awards and technical expertise.",
-
-    type:
-      "website",
-
-  },
-
-
 };
 
 export default function RootLayout({
@@ -69,21 +24,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-     <body className="bg-gray-100">
+    <html lang="en">
+      <body className="bg-slate-50 text-slate-900">
+        <div className="flex min-h-screen">
+          <Sidebar />
 
-    <Sidebar />
-
-    <main className="ml-72 min-h-screen">
-
-        {children}
-
-    </main>
-
-</body>
+          <main className="flex-1 lg:ml-72">
+            {children}
+          </main>
+        </div>
+      </body>
     </html>
   );
 }

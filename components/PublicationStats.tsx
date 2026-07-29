@@ -1,144 +1,93 @@
 import {
-  journalPublications,
-  conferencePublications,
-  coverArticles,
-  reviewerJournals,
-} from "@/data/publications";
+  BookOpen,
+  Presentation,
+  Quote,
+  TrendingUp,
+  Star,
+  BadgeCheck,
+  Image as ImageIcon,
+} from "lucide-react";
 
+import type { ScholarData } from "@/lib/scholar";
+import { reviewerData } from "@/data/reviewer";
+import { coverImages } from "@/data/coverimages";
 
-export default function PublicationStats() {
+interface Props {
+  scholar: ScholarData;
+}
 
-
+export default function PublicationStats({ scholar }: Props) {
   const stats = [
-
     {
-      number: `${journalPublications.length}+`,
       title: "Journal Publications",
-      color: "blue",
+      value: scholar.publications.length,
+      icon: BookOpen,
+      color: "bg-blue-600",
     },
-
-
     {
-      number: `${conferencePublications.length}+`,
-      title: "Conference Publications",
-      color: "slate",
+      title: "Conference Papers",
+      value: scholar.conferences.length,
+      icon: Presentation,
+      color: "bg-emerald-600",
     },
-
-
     {
-      number: `${coverArticles.length}+`,
-      title: "Cover Articles",
-      color: "yellow",
+      title: "Total Citations",
+      value: scholar.metrics.citations,
+      icon: Quote,
+      color: "bg-amber-500",
     },
-
-
     {
-      number: `${reviewerJournals.length}+`,
-      title: "Reviewer Activities",
-      color: "purple",
+      title: "H-Index",
+      value: scholar.metrics.hIndex,
+      icon: TrendingUp,
+      color: "bg-indigo-600",
     },
-
-
+    {
+      title: "i10-Index",
+      value: scholar.metrics.i10Index,
+      icon: Star,
+      color: "bg-purple-600",
+    },
+    {
+      title: "Reviewer Journals",
+      value: reviewerData.length,
+      icon: BadgeCheck,
+      color: "bg-rose-600",
+    },
+    {
+      title: "Journal Covers",
+      value: coverImages.length,
+      icon: ImageIcon,
+      color: "bg-cyan-600",
+    },
   ];
 
-
-
   return (
+    <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+      {stats.map((item) => {
+        const Icon = item.icon;
 
-    <div
-
-      className="
-      mt-8
-      grid
-      grid-cols-1
-      sm:grid-cols-2
-      lg:grid-cols-4
-      gap-5
-      "
-
-    >
-
-
-      {
-        stats.map((item,index)=>(
-
-
+        return (
           <div
-
-            key={index}
-
-            className="
-            bg-white
-            rounded-xl
-            border
-            p-6
-            shadow-sm
-            hover:shadow-md
-            transition
-            "
-
+            key={item.title}
+            className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
           >
-
-
-            <h3
-
-              className={`
-              text-4xl
-              font-bold
-
-              ${
-                item.color === "blue"
-                ?
-                "text-blue-700"
-                :
-                item.color === "yellow"
-                ?
-                "text-yellow-600"
-                :
-                item.color === "purple"
-                ?
-                "text-purple-700"
-                :
-                "text-slate-700"
-              }
-
-              `}
-
+            <div
+              className={`flex h-14 w-14 items-center justify-center rounded-xl ${item.color} text-white`}
             >
+              <Icon size={28} />
+            </div>
 
-              {item.number}
+            <h2 className="mt-5 text-4xl font-bold text-slate-900">
+              {item.value}
+            </h2>
 
-            </h3>
-
-
-
-            <p
-
-              className="
-              mt-2
-              text-gray-700
-              font-medium
-              "
-
-            >
-
+            <p className="mt-2 text-sm font-medium text-slate-600">
               {item.title}
-
             </p>
-
-
-
           </div>
-
-
-        ))
-      }
-
-
-
+        );
+      })}
     </div>
-
   );
-
-
 }

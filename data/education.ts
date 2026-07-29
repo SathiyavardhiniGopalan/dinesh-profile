@@ -1,26 +1,56 @@
-export const education = [
+export interface Education {
+  id: number;
+  degree: string;
+  program: string;
+  institution: string;
+  university: string;
+  location: string;
+  duration: string;
+  grade: string;
+  description: string;
+  achievement?: string;
+  worldRank?: string;
+}
+
+export const education: Education[] = [
   {
-    degree: "Doctor of Philosophy (Ph.D.)",
-    specialization: "Mechanical Engineering",
-    university: "National Cheng Kung University (NCKU), Taiwan",
-    year: "2026",
-    grade: "CGPA: 9.4 / 10",
-    highlight: "QS World Rank 191",
-  },
+  id: 1,
+  degree: "Doctor of Philosophy (Ph.D.)",
+  program: "Mechanical Engineering",
+  institution: "College of Engineering",
+  university: "National Cheng Kung University (NCKU)",
+  location: "Tainan, Taiwan",
+  duration: "2021 – 2026",
+  grade: "CGPA: 9.4 / 10",
+  worldRank: "QS World University Ranking: 191",
+  description:
+    "Conducted interdisciplinary research in magnetic microrobotics, programmable microfluidics, artificial intelligence, and intelligent biomedical systems.",
+},
+
   {
-    degree: "Master of Technology (M.Tech)",
-    specialization: "Engineering Design",
-    university: "Amrita Vishwa Vidyapeetham, India",
-    year: "2016",
+    id: 2,
+    degree: "Master of Technology (M.Tech.)",
+    program: "Engineering Design (Mechanical Engineering)",
+    institution: "Amrita School of Engineering",
+    university: "Amrita Vishwa Vidyapeetham",
+    location: "Coimbatore, India",
+    duration: "2014 – 2016",
     grade: "CGPA: 9.6 / 10",
-    highlight: "Gold Medalist 🥇",
+    achievement: "🥇 Gold Medalist",
+    description:
+      "Specialized in Engineering Design with outstanding academic performance. Graduated as the University Gold Medalist for securing the highest academic achievement in the program.",
   },
+
   {
-    degree: "Bachelor of Technology (B.Tech)",
-    specialization: "Mechanical Engineering",
-    university: "Amrita Vishwa Vidyapeetham, India",
-    year: "2014",
+    id: 3,
+    degree: "Bachelor of Technology (B.Tech.)",
+    program: "Mechanical Engineering",
+    institution: "Amrita School of Engineering",
+    university: "Amrita Vishwa Vidyapeetham",
+    location: "Coimbatore, India",
+    duration: "2010 – 2014",
     grade: "CGPA: 7.41 / 10",
-    highlight: "",
+    description:
+      "Established a strong foundation in mechanical engineering, manufacturing, computational analysis, and engineering design.",
   },
 ];

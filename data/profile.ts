@@ -1,29 +1,44 @@
+export const academicProfiles = [
+  {
+    name: "Google Scholar",
+    icon: "🎓",
+    url: "https://scholar.google.com/citations?user=CKIxD_wAAAAJ",
+  },
+  {
+    name: "LinkedIn",
+    icon: "💼",
+    url: "https://linkedin.com/in/your-profile",
+  },
+  {
+    name: "GitHub",
+    icon: "💻",
+    url: "https://github.com/your-profile",
+  },
+];
+
 export const profile = {
-  name: "Dineshkumar Loganathan",
+  fullName: "Dr. Dineshkumar Loganathan",
 
-  title:
-    "Ph.D. Candidate | Mechanical Engineering | Microfluidics & Microrobotics",
+  degree: "Ph.D. in Mechanical Engineering",
 
-  university:
-    "National Cheng Kung University (NCKU), Tainan, Taiwan",
+  title: "Postdoctoral Researcher / Research Scientist",
 
-  introduction:
-    "I am a Ph.D. candidate in Mechanical Engineering at National Cheng Kung University. My research focuses on intelligent microfluidic systems, magnetic microrobots, programmable manipulation, and AI-driven approaches for biomedical applications.",
+  university: "National Cheng Kung University",
 
-  researchInterests: [
-    "Microfluidics",
-    "Microrobotics",
-    "Magnetic Actuation",
-    "Artificial Intelligence",
-    "Deep Learning",
-    "Computational Fluid Dynamics",
-    "Biomedical Engineering",
+  location: "Tainan, Taiwan",
+
+  email: "your-email@ncku.edu.tw",
+
+  languages: [
+    "English",
+    "Tamil",
   ],
 
-  links: {
-    googleScholar: "",
-    linkedin: "",
-    github: "",
-    email: "your-email@example.com",
-  },
+  scholar: "https://scholar.google.com/citations?user=CKIxD_wAAAAJ&hl=en",
+
+  github: "https://github.com/your-github",
+
+  linkedin: "https://linkedin.com/in/your-linkedin",
+
+  orcid: "https://orcid.org/your-orcid",
 };

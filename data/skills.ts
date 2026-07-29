@@ -1,45 +1,71 @@
-export const researchInterests = [
-  "Microfluidics",
-  "Magnetic Microrobotics",
-  "Biomedical Engineering",
-  "Artificial Intelligence",
-  "Deep Learning",
-  "Data-Driven Modeling",
-  "Computational Fluid Dynamics (CFD)",
-  "Fluid Mechanics",
-  "Finite Element Analysis",
-  "Micro-Scale Flow Manipulation",
-  "Bio-inspired Engineering",
-];
+export interface SkillCategory {
+  title: string;
+  description: string;
+  skills: string[];
+}
 
+export const skills: SkillCategory[] = [
+  {
+    title: "Research Areas",
+    description:
+      "Primary research interests in interdisciplinary mechanical and biomedical engineering.",
 
-export const technicalSkills = [
-  {
-    name: "ANSYS",
-    category: "Simulation",
+    skills: [
+      "Magnetic Microrobotics",
+      "Programmable Microfluidics",
+      "Biomedical Engineering",
+      "Computational Fluid Dynamics (CFD)",
+      "Artificial Intelligence",
+      "Machine Learning",
+      "MEMS",
+      "Lab-on-a-Chip",
+      "Particle Manipulation",
+    ],
   },
+
   {
-    name: "ANSYS Fluent",
-    category: "CFD Simulation",
+    title: "Areas of Interest",
+    description:
+      "Engineering disciplines and research areas developed through academic and research experience.",
+
+    skills: [
+      "Fluid Mechanics",
+      "Computational Fluid Dynamics (CFD)",
+      "Finite Element Analysis (FEA)",
+      "Internal Combustion Engine",
+      "Heat Transfer",
+      "Thermal Engineering",
+      "Mechanical Design",
+    ],
   },
+
   {
-    name: "Abaqus",
-    category: "Finite Element Analysis",
+    title: "Simulation & Engineering Software",
+    description:
+      "Professional engineering software used for simulation, modeling, and design.",
+
+    skills: [
+      "ANSYS",
+      "ANSYS Fluent",
+      "Abaqus",
+      "COMSOL Multiphysics",
+      "MATLAB",
+      "SolidWorks",
+      "Solid Edge",
+      "AutoCAD",
+    ],
   },
+
   {
-    name: "MATLAB",
-    category: "Programming & Analysis",
-  },
-  {
-    name: "SolidWorks",
-    category: "CAD Design",
-  },
-  {
-    name: "Solid Edge",
-    category: "CAD Design",
-  },
-  {
-    name: "C++",
-    category: "Programming",
+    title: "Programming",
+    description:
+      "Programming languages used for scientific computing and engineering applications.",
+
+    skills: [
+      "Python",
+      "MATLAB",
+      "C++",
+      "C",
+    ],
   },
 ];

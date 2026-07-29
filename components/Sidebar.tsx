@@ -1,7 +1,7 @@
 "use client";
-
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import {
   Home,
   User,
@@ -13,6 +13,8 @@ import {
   Code2,
   Mail,
   Download,
+  MapPin,
+  Medal,
 } from "lucide-react";
 
 const menuItems = [
@@ -24,10 +26,13 @@ const menuItems = [
   { name: "Projects", href: "/projects", icon: FolderKanban },
   { name: "Skills", href: "/skills", icon: Code2 },
   { name: "Awards", href: "/awards", icon: Award },
+  { name: "Activities", href: "/activities",icon: Medal },
   { name: "Contact", href: "/contact", icon: Mail },
 ];
 
 export default function Sidebar() {
+  const pathname = usePathname();
+
   return (
     <aside
       className="
@@ -40,65 +45,104 @@ export default function Sidebar() {
         overflow-y-auto
         bg-slate-900
         text-white
-        shadow-xl
+        shadow-2xl
       "
     >
-
-      <div className="flex flex-col items-center p-6">
+      <div className="flex flex-col items-center px-6 py-8">
 
         <Image
-          src="/profile.jpg"
-          alt="Profile"
-          width={140}
-          height={140}
-          className="rounded-full border-4 border-white object-cover"
+          src="/dinesh.jpg"
+          alt="Dr. Dineshkumar Loganathan"
+          width={150}
+          height={150}
+          className="rounded-full border-4 border-blue-500 object-cover shadow-xl"
         />
 
-        <h2 className="mt-5 text-2xl font-bold text-center">
-          Dineshkumar Loganathan
+        <h2 className="mt-5 text-center text-xl font-bold leading-tight">
+          Dr. Dineshkumar Loganathan
         </h2>
 
-        <p className="text-gray-300 mt-2 text-center">
-          Ph.D. Researcher
+        <p className="mt-2 text-center text-blue-300 font-medium">
+          Research Scientist
         </p>
 
-        <p className="text-sm text-gray-400 text-center">
+        <p className="text-center text-sm text-gray-400">
+          Ph.D. in Mechanical Engineering
+        </p>
+
+        <p className="mt-1 text-center text-sm text-gray-400">
           National Cheng Kung University
         </p>
+
+        <div className="mt-4 flex items-center gap-2 text-gray-400 text-sm">
+          <MapPin size={16} />
+          <span>Tainan, Taiwan</span>
+        </div>
 
         <a
           href="/Dineshkumar_Loganathan_CV.pdf"
           target="_blank"
-          className="mt-4 flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition"
+          rel="noopener noreferrer"
+          className="mt-6 flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 font-medium transition hover:bg-blue-700"
         >
           <Download size={18} />
           Download CV
         </a>
-
       </div>
-{/* Add divider here */}
-<hr className="border-slate-700 mx-6" />
 
-      <nav className="mt-3 pb-10">
+      <hr className="mx-6 border-slate-700" />
 
+      <nav className="px-4 py-6">
         {menuItems.map((item) => {
-
           const Icon = item.icon;
+          const active = pathname === item.href;
 
           return (
             <Link
               key={item.name}
               href={item.href}
-              className="flex items-center gap-3 px-8 py-4 hover:bg-slate-800 transition"
+              className={`mb-2 flex items-center gap-3 rounded-xl px-4 py-3 transition-all ${active
+                  ? "bg-blue-600 text-white shadow-md"
+                  : "text-gray-300 hover:bg-slate-800 hover:text-white"
+                }`}
             >
               <Icon size={20} />
-              {item.name}
+              <span>{item.name}</span>
             </Link>
           );
         })}
-
       </nav>
 
+      <div className="mx-6 mt-6 border-t border-slate-700 pt-6">
+
+        <h3 className="mb-5 text-center text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">
+          Connect
+        </h3>
+
+        <div className="space-y-3">
+
+          <a
+            href="https://scholar.google.com/citations?user=CKIxD_wAAAAJ&hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 transition-all duration-300 hover:border-blue-500 hover:bg-blue-600"
+          >
+            <span className="font-medium">Google Scholar</span>
+            <span>→</span>
+          </a>
+          <a
+            href="https://linkedin.com/in/YOUR_PROFILE"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-between rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 transition-all duration-300 hover:border-blue-500 hover:bg-blue-600"
+          >
+            <span className="font-medium">LinkedIn</span>
+            <span>→</span>
+          </a>
+
+        </div>
+
+      </div>
     </aside>
   );
 }
